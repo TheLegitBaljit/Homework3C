@@ -94,6 +94,7 @@ void print_lines(char * str)
     {
         free(text[i]);
     }
+    printf("\n");
 }
 void print_similar_words(char * str)
 {
