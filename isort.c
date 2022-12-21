@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define SIZE 50
 void shift_element(int* arr, int i)
 {
     int temp = i;
@@ -23,10 +23,20 @@ void insertion_sort(int array[], int len) {
 }
 int main()
 {
-    int arr[] = {1,2,3,4,5,0};
-    int len = sizeof(arr) / sizeof(arr[0]);
-    insertion_sort(arr,len);
-   for(int i=0; i < len; i++)
-       printf("%d  ",arr[i]);
+    int arr[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    insertion_sort(arr,SIZE);
+    for (int i = 0; i < SIZE; i++)
+    {
+        if(i==SIZE-1)
+        {
+          printf("%d",arr[i]); 
+          break;
+        }
+        printf("%d,",arr[i]);
+    }
 
 }
