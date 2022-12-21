@@ -81,12 +81,12 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == '\n')
+        if(*text[i] == EOF)
             break;
     }
     for(int i = 0; i < 250; i++)
     {
-        if(*text[i] == '\n')
+        if(*text[i] == EOF)
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
@@ -95,7 +95,6 @@ void print_lines(char * str)
     {
         free(text[i]);
     }
-    printf("\n");
 }
 void print_similar_words(char * str)
 {
