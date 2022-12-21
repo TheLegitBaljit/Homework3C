@@ -85,7 +85,7 @@ void print_lines(char * str)
     }
     for(int i = 0; i < 250; i++)
     {
-        if(*text[i+1] == *"")
+        if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
@@ -94,7 +94,6 @@ void print_lines(char * str)
     {
         free(text[i]);
     }
-    printf("\n");
 }
 void print_similar_words(char * str)
 {
