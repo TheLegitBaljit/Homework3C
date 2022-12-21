@@ -13,7 +13,6 @@ int getline2(char s[])
         count++;
         if(s[i] == '\n')
         {
-        s[i + 1] = '\0';
         break;
         }
     }
