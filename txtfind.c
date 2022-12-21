@@ -13,10 +13,11 @@ int getline2(char s[])
         count++;
         if(s[i] == '\n')
         {
+        s[i] = '\0';
         break;
         }
     }
-    return count + 1; // we add 1 because at the end of the string(line) there is a \0
+    return count; // we add 1 because at the end of the string(line) there is a \0
 }
 int getword(char w[])
 {
@@ -85,7 +86,7 @@ void print_lines(char * str)
     for(int i = 0; i < mallocated-1; i++)
     {
         if(substring(text[i],str) == 1)
-            printf("%s",text[i]);
+            printf("%s\n",text[i]);
     }
     for(int i = 0; i < mallocated; i++)
     {
@@ -115,7 +116,7 @@ int main()
     getword(w);
     getline2(s);
     getline2(dump);
-    char function = s[strlen(s)- 2];
+    char function = s[strlen(s)- 1];
     if(function == 'a')
         print_lines(w);
     if(function == 'b')
