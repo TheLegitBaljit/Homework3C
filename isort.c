@@ -26,17 +26,18 @@ int main()
     int arr[SIZE];
     for (int i = 0; i < SIZE; i++)
     {
-        scanf("%d",&arr[i]);
+        scanf(" %d",&arr[i]);
     }
     insertion_sort(arr,SIZE);
     for (int i = 0; i < SIZE; i++)
     {
         if(i==SIZE-1)
         {
-          printf("%d",arr[i]); 
+          printf("%d",arr[i]);
           break;
         }
         printf("%d,",arr[i]);
     }
+    printf("\n");
 
 }
