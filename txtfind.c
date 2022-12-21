@@ -83,10 +83,8 @@ void print_lines(char * str)
         if(*text[i] == *"")
             break;
     }
-    for(int i = 0; i < 250; i++)
+    for(int i = 0; i < mallocated; i++)
     {
-        if(*text[i] == *"")
-            break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
     }
@@ -94,7 +92,6 @@ void print_lines(char * str)
     {
         free(text[i]);
     }
-    printf("\n");
 }
 void print_similar_words(char * str)
 {
