@@ -9,14 +9,12 @@ int getline2(char s[])
     int count = 0;
     for(int i = 0; i < LINE; i++)
     {
-        if(scanf("%c",&s[i])!=EOF)
-        {
+        scanf("%c",&s[i]);
         count++;
         if(s[i] == '\n')
         {
         s[i + 1] = '\0';
         break;
-        }
         }
     }
     return count + 1; // we add 1 because at the end of the string(line) there is a \0
@@ -26,14 +24,12 @@ int getword(char w[])
     int count = 0;
     for(int i =0; i < WORD; i++)
     {
-        if(scanf("%c",&w[i])!=EOF)
-        {
+        scanf("%c",&w[i]);
         count++;
         if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ')
         {
             w[i]='\0';
             break;
-        }
         }
     }
     return count; 
@@ -84,12 +80,12 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == '\n')
+        if(*text[i] == *"")
             break;
     }
     for(int i = 0; i < 250; i++)
     {
-        if(*text[i] == '\n')
+        if(*text[i+1] == *"")
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
