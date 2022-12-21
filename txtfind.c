@@ -83,7 +83,7 @@ void print_lines(char * str)
         if(*text[i] == *"")
             break;
     }
-    for(int i = 0; i < mallocated; i++)
+    for(int i = 0; i < mallocated-1; i++)
     {
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
