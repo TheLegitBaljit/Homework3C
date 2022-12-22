@@ -128,6 +128,5 @@ int main()
         print_lines(w);
     if(function == 'b')
          print_similar_words(w);
-   
     return 0;
 }
