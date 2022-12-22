@@ -85,11 +85,11 @@ void print_lines(char * str)
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(substring(text[i],str) == 1 && i == mallocated-1)
-        {
-            printf("%s",text[i]);
-            break;
-        }
+        // if(substring(text[i],str) == 1 && i == mallocated-1)
+        // {
+        //     printf("%s",text[i]);
+        //     break;
+        // }
         if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
