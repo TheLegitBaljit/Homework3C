@@ -80,17 +80,17 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"")
+        if(*text[i] == *"\n")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        // if(substring(text[i],str) == 1 && i == mallocated-1)
-        // {
-        //     printf("%s",text[i]);
-        //     break;
-        // }
-        if(*text[i] == *"")
+        if(substring(text[i],str) == 1 && i == mallocated-1)
+        {
+            printf("%s",text[i]);
+            break;
+        }
+        if(*text[i] == *"\n")
             break;
         if(substring(text[i],str) == 1)
             printf("%s\n",text[i]);
@@ -123,7 +123,7 @@ int main()
     getword(w);
     getline2(s);
     getline2(dump);
-    char function = s[strlen(s)- 1];
+    char function = s[strlen(s)- 2];
     if(function == 'a')
         print_lines(w);
     if(function == 'b')
