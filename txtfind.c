@@ -14,11 +14,11 @@ int getline2(char s[])
         count++;
         if(s[i] == '\n')
         {
-        s[i+1] = '\0';
+        s[i] = '\0';
         break;
         }
     }
-    return count+1; 
+    return count; 
 }
 int getword(char w[])
 {
@@ -81,15 +81,15 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"\0")
+        if(*text[i] == *"")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(*text[i] == *"\0")
+        if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
-            printf("%s",text[i]);
+            printf("%s\n",text[i]);
     }
     for(int i = 0; i < mallocated; i++)
     {
