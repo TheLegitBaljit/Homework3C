@@ -27,7 +27,7 @@ int getword(char w[])
     {
         scanf("%c",&w[i]);
         count++;
-        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ')
+        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
         {
             w[i]='\0';
             break;
@@ -81,12 +81,12 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"\0")
+        if(*text[i] == *"")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(*text[i] == *"\0")
+        if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
@@ -117,8 +117,6 @@ int main()
     char w[WORD];
     getword(w);
     getword(s);
-    // printf("%ld",strlen(s));
-    // char function = s[strlen(s)- 1];
     if(s[0] == 'a')
         print_lines(w);
     if(s[0] == 'b')
