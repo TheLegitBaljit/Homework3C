@@ -11,17 +11,12 @@ int getline2(char s[])
     for(int i = 0; i < LINE; i++)
     {
         scanf("%c",&s[i]);
-        if(s[i]!=*"")
-        {
         count++;
         if(s[i] == '\n')
         {
         s[i+1] = '\0';
         break;
         }
-        }
-        else
-            break;
     }
     return count+1; 
 }
@@ -86,12 +81,12 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"")
+        if(*text[i] == *"\0")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(*text[i] == *"")
+        if(*text[i] == *"\0")
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
