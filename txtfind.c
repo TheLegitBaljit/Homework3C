@@ -115,10 +115,8 @@ int main()
 {
     char s[LINE];
     char w[WORD];
-    char dump[LINE];
     getword(w);
-    getline2(s);
-    getline2(dump);
+    getword(s);
     char function = s[strlen(s)- 2];
     if(function == 'a')
         print_lines(w);
