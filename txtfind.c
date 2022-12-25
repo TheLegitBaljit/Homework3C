@@ -11,14 +11,19 @@ int getline2(char s[])
     for(int i = 0; i < LINE; i++)
     {
         scanf("%c",&s[i]);
+        if(s[i]!=*"")
+        {
         count++;
         if(s[i] == '\n')
         {
-        s[i] = '\0';
+        s[i+1] = '\0';
         break;
         }
+        }
+        else
+            break;
     }
-    return count; 
+    return count+1; 
 }
 int getword(char w[])
 {
@@ -89,7 +94,7 @@ void print_lines(char * str)
         if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
-            printf("%s\n",text[i]);
+            printf("%s",text[i]);
     }
     for(int i = 0; i < mallocated; i++)
     {
