@@ -81,12 +81,12 @@ void print_lines(char * str)
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"")
+        if(*text[i] == *"\0")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(*text[i] == *"")
+        if(*text[i] == *"\0")
             break;
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
@@ -117,10 +117,11 @@ int main()
     char w[WORD];
     getword(w);
     getword(s);
-    char function = s[strlen(s)- 1];
-    if(function == 'a')
+    // printf("%ld",strlen(s));
+    // char function = s[strlen(s)- 1];
+    if(s[0] == 'a')
         print_lines(w);
-    if(function == 'b')
+    if(s[0] == 'b')
          print_similar_words(w);
     return 0;
 }
