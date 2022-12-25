@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #define LINE 256
 #define WORD 30
+#define MAXLINES 250
 
 int getline2(char s[])
 {
@@ -17,7 +18,7 @@ int getline2(char s[])
         break;
         }
     }
-    return count; // we add 1 because at the end of the string(line) there is a \0
+    return count; 
 }
 int getword(char w[])
 {
@@ -74,23 +75,18 @@ int similar (char *s, char *t, int n)
 void print_lines(char * str)
 {
     int mallocated = 0;
-    char *text[250];
+    char *text[MAXLINES];
     for(int i = 0; i < 250; i++)
     {
         text[i] = (char*)malloc(LINE * sizeof(char));
         getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"\n")
+        if(*text[i] == *"")
             break;
     }
     for(int i = 0; i < mallocated-1; i++)
     {
-        if(substring(text[i],str) == 1 && i == mallocated-1)
-        {
-            printf("%s",text[i]);
-            break;
-        }
-        if(*text[i] == *"\n")
+        if(*text[i] == *"")
             break;
         if(substring(text[i],str) == 1)
             printf("%s\n",text[i]);
@@ -103,7 +99,7 @@ void print_lines(char * str)
 void print_similar_words(char * str)
 {
     char word[WORD];
-    for(int i=0;i<256*250;i++)
+    for(int i=0;i<MAXLINES*LINE;i++)
     {
         getword(word);
         if(*word == '\n')
