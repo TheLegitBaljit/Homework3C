@@ -7,25 +7,8 @@
 
 int getline2(char s[])
 {
-    int count = 0;
-    for(int i = 0; i < LINE; i++)
-    {
-        scanf("%c",&s[i]);
-        count++;
-        if(s[i] == '\n' || s[i]=='\r')
-        {
-            if(s[i]=='\n')
-            {
-            s[i+1] = '\0';
-            break;
-            }
-            else
-            {
-                s[i+1] = '\0';
-            }
-        }
-    }
-    return count+1; 
+    fgets(s,LINE,stdin);
+    return strlen(s); 
 }
 int getword(char w[])
 {
@@ -120,13 +103,13 @@ void print_similar_words(char * str)
 }
 int main()
 {
-    char s[LINE];
+    char s[WORD];
     char w[WORD];
     getword(w);
     getword(s);
     if(s[0] == 'a')
         print_lines(w);
     if(s[0] == 'b')
-         print_similar_words(w);
+        print_similar_words(w);
     return 0;
 }
