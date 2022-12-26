@@ -24,6 +24,18 @@ int getline2(char s[])
 int getword(char w[])
 {
     scanf("%s",w);
+    char s[LINE];
+    int index=0;
+    for (size_t i = 0; i < LINE; i++)
+    {
+        if(w[i]!='\r')
+        {
+            s[index] = w[i];
+            index++;
+        }
+    }
+    w=s;
+    return strlen(s); 
     return strlen(w); 
 
 }
