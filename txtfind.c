@@ -8,6 +8,17 @@
 int getline2(char s[])
 {
     fgets(s,LINE,stdin);
+    char w[LINE];
+    int index=0;
+    for (size_t i = 0; i < LINE; i++)
+    {
+        if(s[i]!='\r')
+        {
+            w[index] = s[i];
+            index++;
+        }
+    }
+    s=w;
     return strlen(s); 
 }
 int getword(char w[])
