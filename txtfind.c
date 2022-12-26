@@ -12,18 +12,8 @@ int getline2(char s[])
 }
 int getword(char w[])
 {
-    int count = 0;
-    for(int i =0; i < WORD; i++)
-    {
-        scanf("%c",&w[i]);
-        count++;
-        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
-        {
-            w[i]='\0';
-            break;
-        }
-    }
-    return count; 
+    scanf("%s",w);
+    return strlen(w); 
 
 }
 int substring( char * str1, char * str2)
@@ -64,20 +54,13 @@ int similar (char *s, char *t, int n)
 }
 void print_lines(char * str)
 {
-    int mallocated = 0;
     char *text[MAXLINES];
+    int mallocated = 0;
     for(int i = 0; i < 250; i++)
     {
         text[i] = (char*)malloc(LINE * sizeof(char));
-        getline2(text[i]);
         mallocated++;
-        if(*text[i] == *"")
-            break;
-    }
-    for(int i = 0; i < mallocated-1; i++)
-    {
-        if(*text[i] == *"")
-            break;
+        getline2(text[i]);
         if(substring(text[i],str) == 1)
             printf("%s",text[i]);
     }
