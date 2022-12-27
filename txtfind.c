@@ -5,9 +5,23 @@
 #define WORD 30
 #define MAXLINES 250
 
+void initWord(char word[])
+{
+    for (size_t i = 0; i < WORD; i++)
+    {
+        word[i]=0;
+    }
+}
+void initLine(char line[])
+{
+    for (size_t i = 0; i < LINE; i++)
+    {
+        line[i]=0;
+    }
+}
 int getline2(char s[])
 {
-    char c;
+    char c = 0;
     for (size_t i = 0; i < 256; i++)
     {
         scanf("%c",&c);
@@ -39,7 +53,7 @@ int getword(char w[])
     return count; 
 
 }
-int substring( char * str1, char * str2)
+int substring(char * str1, char * str2)
 {
     int count = 0;
     int ans = 0;
@@ -78,16 +92,15 @@ int similar (char *s, char *t, int n)
 void print_lines(char * str)
 {
     char *text[MAXLINES];
-    int mallocated = 0;
     for(int i = 0; i < 250; i++)
     {
         text[i] = (char*)malloc(LINE * sizeof(char));
-        mallocated++;
+        initLine(text[i]);
         getline2(text[i]);
         if(substring(text[i],str) == 1)
             printf("%s\n",text[i]);
     }
-    for(int i = 0; i < mallocated; i++)
+    for(int i = 0; i < 250; i++)
     {
         free(text[i]);
     }
@@ -97,6 +110,7 @@ void print_similar_words(char * str)
     char word[WORD];
     for(int i=0;i<MAXLINES*LINE;i++)
     {
+        initWord(word);
         getword(word);
         if(*word == '\n')
             break;
@@ -111,6 +125,8 @@ int main()
 {
     char s[WORD];
     char w[WORD];
+    initWord(s);
+    initWord(w);
     getword(w);
     getword(s); 
     if(s[0] == 'a')
