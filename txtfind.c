@@ -28,7 +28,7 @@ int getword(char w[])
     int index=0;
     for (size_t i = 0; i < LINE; i++)
     {
-        if(w[i]!='\r')
+        if(w[i]!='\r' || w[i]!='\n' || w[i]!=' ' || w[i]!='\t')
         {
             s[index] = w[i];
             index++;
