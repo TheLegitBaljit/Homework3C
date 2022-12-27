@@ -7,36 +7,36 @@
 
 int getline2(char s[])
 {
-    fgets(s,LINE,stdin);
-    char w[LINE];
-    int index=0;
-    for (size_t i = 0; i < LINE; i++)
+    char c;
+    for (size_t i = 0; i < 256; i++)
     {
-        if(s[i]!='\r')
+        scanf("%c",&c);
+        if(c!='\r')
         {
-            w[index] = s[i];
-            index++;
+            s[i]=c;
+        }
+        if(c=='\n')
+        {
+            s[i]='\0';
+            break;
         }
     }
-    s=w;
     return strlen(s); 
 }
 int getword(char w[])
 {
-    scanf("%s",w);
-    char s[LINE];
-    int index=0;
-    for (size_t i = 0; i < LINE; i++)
+    int count = 0;
+    for(int i =0; i < WORD; i++)
     {
-        if(w[i]!='\r' || w[i]!='\n' || w[i]!=' ' || w[i]!='\t')
+        scanf("%c",&w[i]);
+        count++;
+        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
         {
-            s[index] = w[i];
-            index++;
+            w[i]='\0';
+            break;
         }
     }
-    w=s;
-    return strlen(s); 
-    return strlen(w); 
+    return count; 
 
 }
 int substring( char * str1, char * str2)
@@ -85,7 +85,7 @@ void print_lines(char * str)
         mallocated++;
         getline2(text[i]);
         if(substring(text[i],str) == 1)
-            printf("%s",text[i]);
+            printf("%s\n",text[i]);
     }
     for(int i = 0; i < mallocated; i++)
     {
@@ -112,7 +112,7 @@ int main()
     char s[WORD];
     char w[WORD];
     getword(w);
-    getword(s);
+    getword(s); 
     if(s[0] == 'a')
         print_lines(w);
     if(s[0] == 'b')
