@@ -9,14 +9,14 @@ void initWord(char word[])
 {
     for (size_t i = 0; i < WORD; i++)
     {
-        word[i]=0;
+        *(word+i)=0;
     }
 }
 void initLine(char line[])
 {
     for (size_t i = 0; i < LINE; i++)
     {
-        line[i]=0;
+        *(line+i)=0;
     }
 }
 int getline2(char s[])
@@ -27,11 +27,11 @@ int getline2(char s[])
         scanf("%c",&c);
         if(c!='\r')
         {
-            s[i]=c;
+            *(s+i)=c;
         }
         if(c=='\n')
         {
-            s[i]='\0';
+            *(s+i)='\0';
             break;
         }
     }
@@ -42,11 +42,11 @@ int getword(char w[])
     int count = 0;
     for(int i =0; i < WORD; i++)
     {
-        scanf("%c",&w[i]);
+        scanf("%c",&(*(w+i)));
         count++;
-        if(w[i] == '\n' || w[i] == '\t' || w[i] == ' ' || w[i]=='\r')
+        if(*(w+i) == '\n' || *(w+i) == '\t' || *(w+i) == ' ' || *(w+i)=='\r')
         {
-            w[i]='\0';
+            *(w+i)='\0';
             break;
         }
     }
@@ -94,15 +94,15 @@ void print_lines(char * str)
     char *text[MAXLINES];
     for(int i = 0; i < 250; i++)
     {
-        text[i] = (char*)malloc(LINE * sizeof(char));
-        initLine(text[i]);
-        getline2(text[i]);
-        if(substring(text[i],str) == 1)
-            printf("%s\n",text[i]);
+        *(text+i) = (char*)malloc(LINE * sizeof(char));
+        initLine(*(text+i));
+        getline2(*(text+i));
+        if(substring(*(text+i),str) == 1)
+            printf("%s\n",*(text+i));
     }
     for(int i = 0; i < 250; i++)
     {
-        free(text[i]);
+        free(*(text+i));
     }
 }
 void print_similar_words(char * str)
