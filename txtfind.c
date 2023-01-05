@@ -95,6 +95,10 @@ void print_lines(char * str)
     for(int i = 0; i < 250; i++)
     {
         *(text+i) = (char*)malloc(LINE * sizeof(char));
+        if(*(text+i)==NULL)
+        {
+            exit(0);
+        }
         initLine(*(text+i));
         getline2(*(text+i));
         if(substring(*(text+i),str) == 1)
